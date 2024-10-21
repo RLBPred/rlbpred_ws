@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RLBPred</title>
+    <link rel="stylesheet" type="text/css" href="res/styles.css">
+    <script src="res/autosize.js"></script>
+    <script src="res/submit.js"></script>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="rect"></div>
+
+        <!-- 两侧的图片 -->
+        <img src="res/left leaf.png" alt="Left Leaf" class="left-leaf">
+        <img src="res/right leaf.png" alt="Left Leaf" class="right-leaf">
+
+        <h1>RLBPred</h1> <!-- 导航栏标题 -->
+        <div class="nav-options">
+            <a href="index.html">Home</a> <!-- 跳转到Home页面 -->
+            <a href="search.html">Search</a> <!-- 跳转到Search页面 -->
+            <a href="Download.html">Download</a>
+            <a href="help.html">Help</a> <!-- 跳转到Help页面 -->
+        </div>
+    </div>
+
+
+    <table width="100%" style="border-collapse: separate; border-spacing: 10px;" id="select_table">
+        <tbody>
+            <tr>
+                <td style="width: 10%;text-align: right;">
+                    <span style="font-weight: bold;font-size: 18px;">Keyword</span>
+                </td>
+                <td style="width: 95%">
+                    <select class="selectpicker" id="exact_search_type" name="exact_search_type" data-width="18%"
+                        style="display: inline-block;font-family: 'consolas';" data-live-search="false"
+                        data-dropup-auto="false">
+                        <option value="protein ID" selected="">protein ID</option>
+                        <option value="Gene Name">Gene Name</option>
+                        <option value="Protein Sequence">Protein Sequence</option>
+                    </select>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div data-unit="px" class="rectangle" data-container="grid" data-type="rectangle">
+        <div class="search-div-inside">
+            <!-- 输入框+提交键 -->
+            <form id="accessionForm">
+                <div class="inputcontent" style="width: inherit;">
+                    <textarea type="text" id="accessionInput" class="input-shape" placeholder="Enter here..."
+                        name="accession" required="" rows="1" cols="100" style="height: 23px;font-family: 'consolas';"
+                        oninput="AutoSize(this)"></textarea>
+                    <!-- <input type="text" id="accessionInput" class="input-shape" placeholder="Enter here..."
+                        name="accession" required=""> -->
+                </div>
+                <button class="submit_button" type="button" class="transparent-button" aria-label=""
+                    onclick="submitForm()">
+                    <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M34.524 30.2597L27.7081 23.445C27.4004 23.1374 26.9834 22.9665 26.5459 22.9665H25.4315C27.3184 20.5537 28.4396 17.5188 28.4396 14.2174C28.4396 6.36364 22.0749 0 14.2198 0C6.36472 0 0 6.36364 0 14.2174C0 22.0711 6.36472 28.4347 14.2198 28.4347C17.5218 28.4347 20.5572 27.3137 22.9704 25.4272V26.5414C22.9704 26.9788 23.1413 27.3958 23.449 27.7033L30.2649 34.5181C30.9075 35.1606 31.9467 35.1606 32.5825 34.5181L34.5172 32.5837C35.1598 31.9412 35.1598 30.9023 34.524 30.2597ZM14.2198 22.9665C9.38643 22.9665 5.46915 19.0567 5.46915 14.2174C5.46915 9.38483 9.37959 5.46822 14.2198 5.46822C19.0532 5.46822 22.9704 9.37799 22.9704 14.2174C22.9704 19.0499 19.06 22.9665 14.2198 22.9665Z"
+                            fill="#568376" />
+                    </svg>
+
+                </button>
+
+            </form>
+        </div>
+        <div class="border"></div>
+    </div>
+
+
+    <!-- 底部信息条 -->
+    <div class="bottom" style="background-color: #689182;">
+        <div class="bottom-text" align="center" style="color: #ffffff;">
+            <p>
+                About Us
+                <br>
+                Ruoying Wang
+                <br>
+                Contact Rywang@m.fudan.edu.cn or Huijuan Feng@fudan.edu.cn
+            </p>
+        </div>
+    </div>
+    <script>
+        var offset = 0;
+        document.querySelector('.rectangle').style.height = offset + 125 + 'px';
+        document.querySelector('.search-div-inside').style.height = offset + 125 + 'px';
+        document.querySelector('.border').style.height = offset + 100 + 'px';
+    </script>
+
+</body>
+
+</html>

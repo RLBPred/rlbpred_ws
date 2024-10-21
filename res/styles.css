@@ -1,0 +1,225 @@
+/* 字体 */
+@font-face {
+    font-family: 'Alkalami';
+    src: url('alkalami.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    /* 加载字体文件 */
+}
+
+/* 导航栏 */
+.navbar {
+    height: 100px;
+    border-radius: 12px;
+    /* 圆角矩形 */
+    width: 100%;
+    background: linear-gradient(to bottom, #8ac5b1, #c0eebe);
+    /* 代替了图片渐变 */
+    position: relative;
+    clip-path: inset(0 round 12px);
+    /* 圆角矩形的裁剪，防止有其他元素溢出 */
+}
+
+.navbar img.left-leaf {
+    position: absolute;
+    top: 5%;
+    scale: 110%;
+}
+
+.navbar img.right-leaf {
+    position: absolute;
+    top: 5%;
+    scale: 110%;
+
+    right: 0%;
+    /* 右对齐 */
+}
+
+
+.navbar h1 {
+    font-family: "Alkalami", serif;
+    font-weight: 400;
+    font-size: 60px;
+    letter-spacing: 5px;
+    margin: auto;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.nav-options {
+    position: relative;
+    top: 60%;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-options a {
+    color: rgba(62, 118, 88);
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 21px;
+}
+
+.nav-options a:hover {
+    background-color: rgba(217, 255, 216, 0.5);
+}
+
+
+/* 中间内容 */
+.content {
+    background: radial-gradient(#f3fee5, #ffffff);
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 1000px) {
+    .content {
+        flex-direction: column;
+    }
+}
+
+.content div {
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+}
+
+.content img {
+    max-width: 600px;
+    max-height: 600px;
+    height: auto;
+    display: flex;
+    margin: 20px auto;
+}
+
+.styled-paragraph {
+    text-align: center;
+    vertical-align: middle;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: "Arial", serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* quick search */
+
+/* 下拉选择栏 */
+.selectpicker {
+    width: 20%;
+    padding: 10px;
+    font-size: 16px;
+    border: solid 2px #accca7;
+    border-radius: 10px;
+    outline: none;
+    background-color: white;
+    cursor: pointer;
+    appearance: none;
+}
+
+.panel-default {
+    color: #0b0a0a;
+    background: 1px solid #f5f5f5;
+    border: 1px solid #0d0d0d;
+}
+
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+
+.rectangle {
+    width: 80%;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: inset -22px -22px 93px 0px rgba(255, 255, 255, 1), -22px -22px 46px 0px rgba(239, 246, 239, 1), 22px 22px 46px 0px rgba(146, 179, 168, 1);
+    border-radius: 40px 40px 40px 40px;
+
+}
+
+.search-div-inside {
+    display: flex;
+}
+
+.border {
+
+    position: relative;
+    top: -100%;
+    border: solid 2px #accca7;
+    margin: 10px;
+    border-radius: 40px;
+    z-index: -1;
+}
+
+#select_table {
+    font-family: 'Consolas';
+    translate: 5% 150%;
+}
+
+
+.search-div-inside form {
+    display: flex;
+    margin-left: 3%;
+    width: 90%;
+}
+
+.inputcontent {
+    margin: auto 0;
+}
+
+.submit_button {
+    margin: auto 0px auto auto;
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    /* height: calc(var(--height-input)*0.6); */
+    /* background-image: url('RLBPred site VWAQTB_files/search.svg'); */
+}
+
+.submit_button :hover {
+    cursor: pointer;
+}
+
+.input-shape {
+    resize: none;
+    background: transparent;
+    border: none;
+    outline-style: none;
+    padding: 5px;
+    font-family: 'consolas';
+    font-size: 20px;
+}
+
+.panel-default-2 {
+    margin-top: 10%;
+    color: #0b0a0a;
+    border: 1px solid #0d0d0d;
+}
+
+.panel-heading-2 {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.bottom {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    margin-top: 250px;
+    height: 200px;
+}
+
+.bottom p {
+    padding-top: 40px;
+}

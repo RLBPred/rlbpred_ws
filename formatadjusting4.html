@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>General Information</title>
+    <style>
+        @font-face {
+            font-family: 'Alkalami';
+            src: url('res/alkalami.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            /* 加载字体文件 */
+        }
+
+        .navbar {
+            height: 100px;
+            border-radius: 12px;
+            /* 圆角矩形 */
+            width: 100%;
+            background: linear-gradient(to bottom, #8ac5b1, #c0eebe);
+            /* 代替了图片渐变 */
+            position: relative;
+            clip-path: inset(0 round 12px);
+            /* 圆角矩形的裁剪，防止有其他元素溢出 */
+        }
+
+        .navbar img.left-leaf {
+            position: absolute;
+            top: 5%;
+            scale: 110%;
+        }
+
+        .navbar img.right-leaf {
+            position: absolute;
+            top: 5%;
+            scale: 110%;
+
+            right: 0%;
+            /* 右对齐 */
+        }
+
+
+        .navbar h1 {
+            font-family: "Alkalami", serif;
+            font-weight: 400;
+            font-size: 60px;
+            letter-spacing: 5px;
+            margin: auto;
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .nav-options {
+            position: relative;
+            top: 60%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-options a {
+            color: rgba(62, 118, 88);
+            padding: 8px 16px;
+            text-decoration: none;
+            font-size: 21px;
+        }
+
+        .nav-options a:hover {
+            background-color: rgba(217, 255, 216, 0.5);
+        }
+
+        body {
+            background-image: url('background.jpg');
+            background-size: cover;
+            /* 以尽可能小的大小将背景图像展示 */
+            background-repeat: no-repeat;
+            /* 防止背景图像重复 */
+        }
+
+        .title {
+            position: relative;
+            /*设置绝对定位 */
+            top: 0.5%;
+            /* 距离页面顶部 5% */
+            margin: auto;
+            /* 水平居中 */
+            /*z-index: 1;  设置层级，确保标题图在背景图之上 */
+        }
+
+        .title img {
+            transform: translateX(-50%) scale(0.45);
+            position: relative;
+            left: 50%;
+            /* 将图像缩小到原始大小的 10% */
+        }
+
+        /* 添加CSS样式 */
+        table.boxTable {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 11px;
+            color: #000000;
+            background-color: rgba(255, 255, 255, 0);
+            ;
+            border: 1px solid #000000;
+            margin-bottom: 10px;
+        }
+
+        pre,
+        td {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 15px;
+            padding: 3px;
+            text-align: left;
+            height: 10%
+        }
+
+        pre .th .secondtitle {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 40px;
+            text-align: left;
+            height: 5%
+        }
+
+        td.ID {
+            background-color: #88ba8b;
+        }
+
+        .custom-row {
+            height: 200px;
+            /* 设置行的高度为 200px */
+        }
+
+        .wrap {
+            white-space: pre-wrap;
+            /* 或者 use 'break-spaces' */
+            word-wrap: break-word;
+        }
+
+        .highlighted {
+            background-color: rgb(131, 211, 145);
+            font-weight: bold;
+            color: rgb(225, 104, 203);
+        }
+
+        :root {
+            --height-input: 125px
+        }
+    </style>
+    <script src="res/search.js"></script>
+    <script src="res/fuse.js"></script>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="rect"></div>
+
+        <!-- 两侧的图片 -->
+        <img src="res/left leaf.png" alt="Left Leaf" class="left-leaf">
+        <img src="res/right leaf.png" alt="Left Leaf" class="right-leaf">
+
+        <h1>RLBPred</h1> <!-- 导航栏标题 -->
+        <div class="nav-options">
+            <a href="index.html">Home</a> <!-- 跳转到Home页面 -->
+            <a href="search.html">Search</a> <!-- 跳转到Search页面 -->
+            <a href="Download.html">Download</a>
+            <a href="help.html">Help</a> <!-- 跳转到Help页面 -->
+        </div>
+    </div>
+    <pre id="accessionValue">The protein you are searching for is: <span>loading...</span></pre>
+    <pre id="searchContent"></pre>
+    <table class="boxTable" width="100%" border="1" bgcolor="#ffffff" cellpadding="8" cellspacing="0">
+        <tr>
+            <td id="probabilityTable" width="30%">The Binding Probability is:
+                <span id="probabilityValue" width="70%">loading......</span>
+            </td>
+        </tr>
+    </table><br>
+    <div class="boxTable" id="myTableContainer"></div>
+</body>
+
+</html>
