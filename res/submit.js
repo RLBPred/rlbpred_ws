@@ -1,4 +1,3 @@
-
 function submitForm() {
     // 获取 select 和 input 的值
     var selectValue = document.getElementById('exact_search_type').value;
@@ -15,14 +14,12 @@ function submitForm() {
         inputValue = inputValue.toUpperCase();
     }
 
-    if (inputValue.length == 0) {
-        alert("Please enter letters only!");
-        return;
-    }
-
     // 构建 URL 参数
-    var url = 'formatadjusting4.html?exact_search_type=' + encodeURIComponent(selectValue)
-        + '&accession=' + encodeURIComponent(inputValue);
+    var url =
+        'formatadjusting4.html?exact_search_type=' +
+        encodeURIComponent(selectValue) +
+        '&accession=' +
+        encodeURIComponent(inputValue);
 
     // 跳转到目标页面，并传递参数
     window.location.href = url;
