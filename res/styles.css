@@ -230,3 +230,25 @@
     margin-top: 10px;
     margin-bottom: 5px;  
 }
+
+.button-container {
+    display: flex;
+    justify-content: center; /* 居中排列按钮 */
+    gap: 20px; /* 按钮之间的间距 */
+    margin-top: 70px; /* 让按钮和 .rectangle 之间有一定的空间 */
+}
+
+.custom-button {
+    background-color:  rgba(172, 204, 167, 1); /* 设置按钮背景色为绿色 */
+    color: white; /* 设置文字颜色为白色 */
+    border: none; /* 移除默认边框 */
+    padding: 10px 20px; /* 设置按钮的内边距，控制按钮大小 */
+    border-radius: 20px; /* 设置按钮为弧形角 */
+    font-size: 16px; /* 设置按钮文字的大小 */
+    cursor: pointer; /* 鼠标悬停时显示手型光标 */
+    transition: background-color 0.3s ease; /* 添加背景色渐变效果 */
+}
+
+.custom-button:hover {
+    background-color:  rgb(139, 186, 133); /* 悬停时背景色加深 */
+}

@@ -15,6 +15,16 @@
     <link rel="stylesheet" type="text/css" href="res/styles.css">
     <script src="res/autosize.js"></script>
     <script src="res/submit.js"></script>
+    <script>
+        function example() {
+            document.getElementById('accessionInput').value = 'O00567';
+        }
+        function c() {
+            document.getElementById('accessionInput').value = '';
+        }
+        function submit_() {
+            document.getElementById('submit_button').click();
+        }</script>
 </head>
 
 <body>
@@ -66,7 +76,7 @@
                     <!-- <input type="text" id="accessionInput" class="input-shape" placeholder="Enter here..."
                         name="accession" required=""> -->
                 </div>
-                <button class="submit_button" type="button" class="transparent-button" aria-label=""
+                <button id="submit_button" class="submit_button" type="button" class="transparent-button" aria-label=""
                     onclick="submitForm()">
                     <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -81,6 +91,11 @@
         <div class="border"></div>
     </div>
 
+    <div class="button-container">
+        <button class="custom-button" onclick="example()">Examples</button>
+        <button class="custom-button" onclick="c()">Reset</button>
+        <button class="custom-button"onclick="submit_()">Submit</button>
+    </div>
 
     <!-- 底部信息条 -->
     <div class="bottom" style="background-color: #689182;">
