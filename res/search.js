@@ -162,9 +162,9 @@ function displayMatches(match, exactSearchType) {
         if (match && match.length > 0) {
             var container = document.getElementById('myTableContainer');
             container.innerHTML = ''; // 清空表格内容
-            //概率显示表清空
-            document.getElementById("probabilityTable").style.display = 'none';
-
+            // 删除元素之前保存对它的引用
+            const boxTable = document.querySelector('.boxTable');
+            boxTable.style.display = 'none';
             // 创建一个表格
             const table = document.createElement('table');
             table.style.border = '1px solid black'; // 添加边框
@@ -208,10 +208,9 @@ function displayMatches(match, exactSearchType) {
 
                     // 为每个值添加点击事件，点击后将匹配的完整数据填充到表格
                     td.addEventListener('click', function () {
-                        // 显示概率表格
-                        document.getElementById("probabilityTable").style.display = '';
 
                         // 获取概率值并更新
+                        boxTable.style.display = 'block';//重新显示表格
                         var procell = document.getElementById("probabilityValue");
                         procell.textContent = match[0].Probability;
 
@@ -220,8 +219,6 @@ function displayMatches(match, exactSearchType) {
                         document.getElementById('myTableContainer').innerHTML = htmlTable;
 
 
-                        // 删除横线
-                        document.querySelector('.boxTable').remove()
 
                         // 高亮显示 sequence 部分
                         const sequenceContainer = document.getElementById('myTableContainer');
@@ -267,6 +264,19 @@ function displayMatches(match, exactSearchType) {
             document.getElementById("probabilityValue").textContent = "no result";
         }
     }
+}
+
+// 函数：为单元格添加点击事件，并处理跳转和参数传递
+function addClickEventToTd(td, item) {
+    // 假设 item 中的 UniProtKB ID 存在于 key 为 'UniProtKB ID' 的字段
+    const uniprotKBId = item['UniProtKB ID']; // 获取 UniProtKB ID 的值
+
+    // 添加点击事件
+    td.addEventListener('click', function () {
+        // 页面跳转，传递两个参数：exact_search_type 和 accession
+        const url = `formatadjusting4.html?exact_search_type=protein ID&accession=${uniprotKBId}`;
+        window.location.href = url; // 跳转到指定页面并传递参数
+    });
 }
 
 function findMatchByAccession(data, accession) {
