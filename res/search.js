@@ -268,6 +268,7 @@ function displayMatches(match, exactSearchType) {
         }
     }
 }
+
 function findMatchByAccession(data, accession) {
     // 使用~~~~作为分隔符将数据分割成一个列表
     var sections = data.split('~~~');
