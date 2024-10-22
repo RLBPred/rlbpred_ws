@@ -1,4 +1,23 @@
 //<pre id="fileContent"></pre>
+
+// fetch('outout1.json')
+//     .then(response => response.json())
+//     .then(
+//         data => {
+//             const params = new URLSearchParams(window.location.search);
+//             const accession = params.get('accession');
+//             const exactSearchType = params.get('exact_search_type');
+//             if (accession) {
+//                 document.getElementById('accessionValue').innerHTML = `The protein you are searching for is: ${accession}`;
+//             } else {
+//                 document.getElementById('accessionValue').innerHTML = 'Accession parameter not provided.';
+//             }
+
+//         }
+//     )
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
     fetch('output1.json')
         .then(response => response.json())
