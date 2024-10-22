@@ -55,6 +55,32 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 });
 
+
+function findSequence(data, target, topN) {//预处理+通过调用匹配的函数对返回值进行排序和封装
+    var matches = [];
+    for (var i = 0; i < data.length; i++) {//遍历data数组中的每个对象，以便逐一处理序列
+        var text = data[i].item.seq.replace(/[\s\n]/g, '')//清除seq字段中的空白字符和换行符
+        // console.log(text)
+        var match = topNClosestMatches(target, text, target.length, 1);
+        var closestMatch = match[0]//检查最接近的匹配
+        if (closestMatch) {//如果找到了匹配，
+            // console.log(m)
+            closestMatch['idx'] = data[i].refIndex;
+            matches.push(closestMatch);//将closesmatch添加到matches数组中
+            // match[0].idx = i;
+            // matches.push(match[0]);
+            // matches[matches.length - 1].idx = i;
+        }
+
+    }
+    // Sort matches by distance
+    matches.sort((a, b) => a.distance - b.distance);//对 matches 数组按匹配的距离（distance 属性）从小到大进行排序。距离越小表示匹配度越高。
+    console.log(matches)
+
+    // Return top N closest matches
+    return matches.slice(0, topN);
+}
+
 function topNClosestMatches(target, text, maxLength, topN) {
     let matches = [];
 
@@ -72,43 +98,7 @@ function topNClosestMatches(target, text, maxLength, topN) {
     return matches.slice(0, topN);
 }
 
-function findSequence(data, target, topN) {
-    var matches = [];
-    for (var i = 0; i < data.length; i++) {
-        // var text = data[i].replace(/[\s\n]/g, '')
-        // // console.log(text)
-        // var match = topNClosestMatches(target, text, target.length, 1);
-        // var closestMatch = match[0]
-        // if (closestMatch) {
-        //     // console.log(m)
-        //     closestMatch['idx'] = i;
-        //     matches.push(closestMatch);
-        //     // match[0].idx = i;
-        //     // matches.push(match[0]);
-        //     // matches[matches.length - 1].idx = i;
-        // }
-        var text = data[i].item.seq.replace(/[\s\n]/g, '')
-        // console.log(text)
-        var match = topNClosestMatches(target, text, target.length, 1);
-        var closestMatch = match[0]
-        if (closestMatch) {
-            // console.log(m)
-            closestMatch['idx'] = data[i].refIndex;
-            matches.push(closestMatch);
-            // match[0].idx = i;
-            // matches.push(match[0]);
-            // matches[matches.length - 1].idx = i;
-        }
-
-    }
-    // Sort matches by distance
-    matches.sort((a, b) => a.distance - b.distance);
-    console.log(matches)
-
-    // Return top N closest matches
-    return matches.slice(0, topN);
-}
-function findMatchByAccession_json(data, accession, exactSearchType) {
+function findMatchByAccession_json(data, accession, exactSearchType) {//主函数
     switch (exactSearchType) {
         case "protein ID":
             var ret = [data.find(i => {
@@ -148,13 +138,13 @@ function findMatchByAccession_json(data, accession, exactSearchType) {
             }
             var fuse1 = new Fuse(tmp_data, options1)
             var res_fuse = fuse1.search(accession)
-
+            console.log(res_fuse);
             // var matches = findSequence(data.map(i => i['seq']), accession, topN);
             var matches = findSequence(res_fuse, accession, topN);
             var result = [];
             for (var i of matches) {
-                var match = data[i.idx];
-                match["highlights"] = i.substring;
+                var match = data[i.idx];//i里面有idx=refindex，i.idx就对应的是data的index
+                match["highlights"] = i.substring;//fuse里的内容 对应的是搜索了什么内容
                 result.push(match);
             }
             return result;
