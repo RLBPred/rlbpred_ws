@@ -46,25 +46,87 @@
                 padding-right: 10%;
             }
         </style>
-        <h2>Download</h2>
+        <h2>RLBPred-Frequently Asked Questions (FAQ)</h2>
         <p>
-            data describe data describe data describe data describe data describe data describe data describe data
-            describe <br>
-            data describe data describe data describe data describe data describe data describe data describe data
-            describe <br>
+            Welcome to the RLBPDB Help section. Below, you’ll find answers to common questions about using the website
+            and its features.
         </p>
-        <div id="json-file">
+        <div id="QA">
             <style>
-                #json-file {
+                #QA {
                     padding-left: 2%;
                 }
             </style>
-            <h3>JSON File</h3>
-            <p>
-                Probability: AAAAAAAAAAAAAAAAAAAAAAAAA<br>
-                UniProtKB ID: BBBBBBBBBBBBBBBBBBBBBBBB <br>
-                UniProtKB Accession: CCCCCCCCCCCCCCCCCCCC <br>
-            </p>
+            <a href="#" onclick="updateContent1('A1-content')" style="font-size: 20px;">What are R-loops and why are
+                they important?</a>
+            <div id="A1-content" style="display: none; margin: 15px auto 0;  font-size: 16px;">
+                R-loops are three-stranded nucleic acid structures consisting of an RNA: DNA hybrid and a displaced
+                single-stranded DNA (ssDNA). They are essential in various biological processes but can also pose a risk
+                to genomic stability, leading to neurodegenerative disorders and cancers if not properly regulated.
+            </div>
+            <p style="line-height: 1;"></p>
+            <a href="#" onclick="updateContent1('A2-content')" style="font-size: 20px;">How does the RLBPPred model
+                relate to this website?</a>
+            <div id="A2-content" style="display: none; margin: 15px auto 0;  font-size: 16px;">
+                RLBPPred is a machine learning model we’ve developed to predict the binding affinity of R-loop Binding
+                Proteins (RLBPs) to R-loops. It is trained on a selective dataset and provides probability scores for
+                R-loop binding ability. On this website, you can search for the binding probabilities calculated by the
+                model for 20,076 human proteins. Each protein entry includes detailed information such as UniProtKB ID,
+                UniProtKB Accession, Protein Name, RefSeq, GenPept, Source Organism, Gene Name, Map Location, Proteomes,
+                and amino acid sequences.
+                <br>
+                You can explore the prediction results directly through the database or download the dataset for further
+                analysis.
+            </div>
+            <p style="line-height: 1;"></p>
+            <a href="#" onclick="updateContent1('A3-content')" style="font-size: 20px;">How can I search for a specific
+                protein?</a>
+            <div id="A3-content" style="display: none; margin: 15px auto 0;  font-size: 16px;">
+                You can search for proteins using the Quick Search or Search features:<br>
+                • In Home page, you can slide down to Quick Search and input a Protein ID, Gene Name, or Protein
+                Sequence for fast and direct
+                results.<br>
+                • On the Search Page, choose from multiple keyword options like Protein ID (UniProtKB ID, Protein Name,
+                RefSeq, etc.) or Gene Name, or use the sequence-based fuzzy search to match protein sequences.
+                If you cannot find your protein of interest in the database, you can visit www.chhhhh.com to use our
+                model-RLBPred and calculate the probability of the protein binding to R-loop structures.
+            </div>
+            <p style="line-height: 1;"></p>
+            <a href="#" onclick="updateContent1('A4-content')" style="font-size: 20px;"> How does the Protein Sequence
+                search work?</a>
+            <div id="A4-content" style="display: none; margin: 15px auto 0;  font-size: 16px;">
+                When searching by Protein Sequence, the system performs a fuzzy match, comparing your input with other
+                sequences in the database. The sequence with the highest similarity to your query will be highlighted,
+                making it easier for you to compare sequences and identify the protein of interest. Results are returned
+                based on match accuracy, and you can browse through a table of proteins, viewing details as needed.
+            </div>
+            <p style="line-height: 1;"></p>
+            <a href="#" onclick="updateContent1('A5-content')" style="font-size: 20px;"> What can I download from the
+                Download page?</a>
+            <div id="A5-content" style="display: none; margin: 15px auto 0;  font-size: 16px;">
+                You can download protein data and predictions in both JSON and Excel formats. The files contain
+                information such as:<br>
+                • UniProtKB ID<br>
+                • UniProtKB Accession<br>
+                • Protein Name<br>
+                • RefSeq<br>
+                • GenPept<br>
+                • Source Organism<br>
+                • Gene Name<br>
+                • Map Location<br>
+                • Proteomes<br>
+                • Amino acid sequences<br>
+                • Predicted binding affinity to R-loops<br>
+            </div>
+            <p style="line-height: 1;"></p>
+            <a href="#" onclick="updateContent1('A6-content')" style="font-size: 20px;"> How can I contact the RLBPDB
+                team?
+            </a>
+            <div id="A6-content" style="display: none; margin: 15px auto 0;  font-size: 16px;">
+                If you have any questions or suggestions, please contact us at huijuanfeng@fudan.edu.cn. We are happy to
+                assist with any inquiries regarding the database.<br>
+                This Q&A format is designed to clearly address the most common user needs while navigating your website.
+            </div>
             <style>
                 #download_btn {
                     border: #689182 2px solid;
@@ -80,7 +142,6 @@
             </style>
         </div>
     </div>
-
 
     <!-- 底部信息条 -->
     <div class="bottom" style="background-color: #689182;">
@@ -99,6 +160,16 @@
         document.querySelector('.rectangle').style.height = offset + 125 + 'px';
         document.querySelector('.search-div-inside').style.height = offset + 125 + 'px';
         document.querySelector('.border').style.height = offset + 100 + 'px';
+        function updateContent1(contentID) {
+            const A1Content = document.getElementById(contentID);
+
+            // Toggle display of new-content div
+            if (A1Content.style.display === "none" || A1Content.style.display === "") {
+                A1Content.style.display = "block";
+            } else {
+                A1Content.style.display = "none";
+            }
+        }
     </script>
 </body>
 

@@ -118,6 +118,7 @@ function topNClosestMatches(target, text, maxLength, topN) {
 }
 
 function findMatchByAccession_json(data, accession, exactSearchType) {//主函数
+    console.log(data)
     switch (exactSearchType) {
         case "protein ID":
             var ret = [data.find(i => {
