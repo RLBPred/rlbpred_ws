@@ -48,23 +48,16 @@
         </style>
         <h2>Download</h2>
         <p>
-            data describe data describe data describe data describe data describe data describe data describe data
-            describe <br>
-            data describe data describe data describe data describe data describe data describe data describe data
-            describe <br>
+            On this page, you can download comprehensive datasets for 20,076 human proteins in JSON or Excel format.
+            Each dataset includes:<br>
+            • UniProtKB ID and Accession<br>
+            • Protein Name, RefSeq, GenPept<br>
+            • Source Organism, Gene Name, Map Location<br>
+            • Proteomes, Amino Acid Sequence<br>
+            • Binding Probability to R-loops (from RLBPPred)<br>
         </p>
         <div id="json-file">
-            <style>
-                #json-file {
-                    padding-left: 2%;
-                }
-            </style>
             <h3>JSON File</h3>
-            <p>
-                Probability: AAAAAAAAAAAAAAAAAAAAAAAAA<br>
-                UniProtKB ID: BBBBBBBBBBBBBBBBBBBBBBBB <br>
-                UniProtKB Accession: CCCCCCCCCCCCCCCCCCCC <br>
-            </p>
             <style>
                 #download_btn {
                     border: #689182 2px solid;
@@ -78,7 +71,26 @@
                     width: 200px;
                 }
             </style>
-            <button id="download_btn" onclick="download()">Download</button>
+            <a id="download_link" href="output1.json" download>
+                <button id="download_btn">Download</button>
+            </a>
+            <h3>Excel File</h3>
+            <style>
+                #download_btnxlsx {
+                    border: #689182 2px solid;
+                    border-radius: 4px;
+                    width: inherit;
+                    height: inherit;
+                    font-size: 18px;
+                    background-color: rgba(187, 234, 189, 0.349);
+                    font-family: 'consolas';
+                    height: 30px;
+                    width: 200px;
+                }
+            </style>
+            <a id="download_linkxlsx" href="RLBPredDB_data.xlsx" download>
+                <button id="download_btnxlsx">Download</button>
+            </a>
         </div>
     </div>
 
